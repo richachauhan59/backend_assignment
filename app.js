@@ -4,6 +4,9 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 
 const userRoutes = require("./routes/user")
+const childRoutes = require("./routes/child")
+const districtRoutes = require("./routes/district")
+const stateRoutes = require("./routes/state")
 
 dotenv.config();
 
@@ -27,8 +30,10 @@ mongoose.connect(
     }
 );
 
-// app.use('/api', apiRoutes);
 app.use("/user" , userRoutes)
+app.use("/child" , childRoutes)
+app.use("/district" , districtRoutes)
+app.use("/state" , stateRoutes)
 
 app.listen(5000, () => {
     console.log('Server live on port 5000');
